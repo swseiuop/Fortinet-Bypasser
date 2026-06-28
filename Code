@@ -1,0 +1,29 @@
+// ==UserScript==
+// @name         FortiSubscriptionPass
+// @namespace    FortiSubscriptionPass
+// @version      0.1
+// @description  Get the Finish button back
+// @author       /u/trinadzatij
+// @match        https://<YOUR_FMG_ADDRESS_HERE>/p/app/*
+// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @grant        none
+// @run-at      document-body
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    const sleep = async (milliseconds) => {
+        await new Promise(resolve => {
+        return setTimeout(resolve, milliseconds)
+        });
+};
+
+const addFinishButton = async () => {
+    await sleep(3000);
+    var elements = document.querySelectorAll("button.ng-hide.btn.btn-primary");
+    elements[0].classList.value = 'btn btn-primary';
+}
+
+addFinishButton();
+
+})();
